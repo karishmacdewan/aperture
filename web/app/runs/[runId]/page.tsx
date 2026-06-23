@@ -59,18 +59,29 @@ export default function RunDashboardPage() {
   const [detail, setDetail] = useState<RunDetail | null>(null);
   const [error, setError] = useState<string | null>(null);
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const failCountRef = useRef(0);
 
   useEffect(() => {
+    const MAX_CONSECUTIVE_FAILURES = 8; // ~16s of retries — rides out a Render cold start
+
     async function poll() {
       try {
         const data = await getRun(runId);
+        failCountRef.current = 0;
+        setError(null);
         setDetail(data);
         if (data.status === "complete" || data.status === "failed") {
           if (pollRef.current) clearInterval(pollRef.current);
         }
       } catch (err) {
-        setError(err instanceof Error ? err.message : String(err));
-        if (pollRef.current) clearInterval(pollRef.current);
+        failCountRef.current += 1;
+        // Don't give up on the first failure — the backend may just be waking
+        // up from a free-tier cold start (can take 50+ seconds). Keep polling
+        // quietly and only surface an error after repeated consecutive misses.
+        if (failCountRef.current >= MAX_CONSECUTIVE_FAILURES) {
+          setError(err instanceof Error ? err.message : String(err));
+          if (pollRef.current) clearInterval(pollRef.current);
+        }
       }
     }
 
