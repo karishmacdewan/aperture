@@ -1,0 +1,47 @@
+{
+  "category": "powerpoint",
+  "files": [
+    "sample_deck.pptx"
+  ],
+  "num_slides": 4,
+  "slides": [
+    {
+      "index": 0,
+      "title": "Q3 Infrastructure Review",
+      "bullets": [],
+      "has_chart_image": false
+    },
+    {
+      "index": 1,
+      "title": "Highlights",
+      "bullets": [
+        "Migrated 60% of services to the new cluster",
+        "Reduced p95 latency by 18%",
+        "3 incidents resolved within SLA"
+      ],
+      "has_chart_image": false
+    },
+    {
+      "index": 2,
+      "title": "Uptime by Quarter",
+      "bullets": [
+        "Uptime trended upward across all three measured quarters"
+      ],
+      "has_chart_image": true
+    },
+    {
+      "index": 3,
+      "title": "Next Steps",
+      "bullets": [
+        "Complete migration by Q4",
+        "Run load test in staging",
+        "Publish updated runbook"
+      ],
+      "has_chart_image": false
+    }
+  ],
+  "chart_slide_index": 2,
+  "num_embedded_images": 1,
+  "full_text": "Q3 Infrastructure Review\nInternal Engineering Update\nHighlightsMigrated 60% of services to the new cluster\nReduced p95 latency by 18%\n3 incidents resolved within SLA\nUptime by QuarterUptime trended upward across all three measured quarters\nNext StepsComplete migration by Q4\nRun load test in staging\nPublish updated runbook",
+  "notes": "One slide contains an embedded chart image (bar chart, no text alternative)."
+}

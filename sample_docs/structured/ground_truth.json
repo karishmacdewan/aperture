@@ -1,0 +1,48 @@
+{
+  "category": "structured",
+  "files": [
+    "sample_structured.docx",
+    "sample_structured.pdf"
+  ],
+  "num_headings": 5,
+  "headings": [
+    "Acme Corp Data Retention Policy",
+    "1. Introduction",
+    "2. Scope",
+    "3. Retention Requirements",
+    "4. Appendix: Exceptions"
+  ],
+  "num_tables": 1,
+  "tables": [
+    {
+      "num_rows": 4,
+      "num_cols": 3,
+      "header": [
+        "Data Category",
+        "Retention Period",
+        "Owner"
+      ],
+      "rows": [
+        [
+          "Customer Records",
+          "7 years",
+          "Legal"
+        ],
+        [
+          "Email Logs",
+          "1 year",
+          "IT Security"
+        ],
+        [
+          "Financial Statements",
+          "10 years",
+          "Finance"
+        ]
+      ]
+    }
+  ],
+  "num_pages_pdf": 1,
+  "ocr_required": false,
+  "full_text": "Acme Corp Data Retention Policy\n1. Introduction\nThis policy defines how Acme Corp classifies, retains, and disposes of company records. It applies to all employees, contractors, and systems that create or store company data.\n2. Scope\nThis policy covers structured and unstructured records held in company systems, including customer records, email logs, and financial statements. Personal devices are out of scope.\n3. Retention Requirements\nEach data category below has a minimum retention period and a designated owner responsible for enforcement and disposal.\n4. Appendix: Exceptions\nRecords subject to active legal hold are retained until the hold is released, regardless of the periods listed above.",
+  "notes": "Native text layer in both formats; no OCR should be triggered."
+}

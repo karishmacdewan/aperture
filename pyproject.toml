@@ -1,0 +1,43 @@
+[project]
+name = "ingestbench"
+version = "0.1.0"
+description = "Enterprise Ingestion Benchmarking Tool for RAG systems. Benchmarks extraction, chunking, metadata generation, embedding, and vector database write performance. Stops at the vector DB layer by design -- no retrieval, reranking, generation, or agents."
+requires-python = ">=3.11"
+readme = "README.md"
+dependencies = [
+    "pydantic>=2.6",
+    "pyyaml>=6.0",
+    "structlog>=24.1",
+    "typer>=0.12",
+    "tiktoken>=0.7",
+]
+
+[project.scripts]
+ingestbench = "ingestbench.cli:main"
+
+[project.optional-dependencies]
+extraction = [
+    "pymupdf",
+    "pdfplumber",
+    "python-docx",
+    "python-pptx",
+    "docling",
+    "pytesseract",
+    "pdf2image",
+    "pillow",
+    "azure-ai-documentintelligence",
+    "openai",
+]
+embedding = ["openai"]
+vectorstore = ["qdrant-client", "psycopg[binary]", "pgvector"]
+reporting = ["jinja2"]
+sample-docs = ["python-docx", "python-pptx", "pillow", "reportlab", "matplotlib", "pypdf"]
+api = ["fastapi", "uvicorn[standard]", "sqlalchemy>=2.0", "python-multipart"]
+dev = ["pytest", "ruff", "httpx"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

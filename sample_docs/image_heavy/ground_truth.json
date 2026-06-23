@@ -1,0 +1,43 @@
+{
+  "category": "image_heavy",
+  "files": [
+    "screenshot_1.png",
+    "screenshot_2.png"
+  ],
+  "num_images": 2,
+  "images": [
+    {
+      "filename": "screenshot_1.png",
+      "lines": [
+        "build-server-04 ~ % deploy status",
+        "service: ingestion-api      state: RUNNING   uptime: 14d 02h",
+        "service: embedding-worker   state: RUNNING   uptime: 14d 02h",
+        "service: report-generator   state: DEGRADED  uptime: 00d 03h",
+        "",
+        "WARN report-generator: queue depth above threshold (412 > 250)",
+        "INFO autoscaler: spinning up 1 additional worker"
+      ],
+      "diagram_present": true,
+      "diagram_label": "ingestion -> queue -> worker",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "filename": "screenshot_2.png",
+      "lines": [
+        "Pipeline Diagram (manual export)",
+        "",
+        "Documents -> Extraction -> Chunking -> Embedding -> Vector DB",
+        "",
+        "Each stage logs duration_s and status to runs/<run_id>/run.log"
+      ],
+      "diagram_present": true,
+      "diagram_label": "stage 1 -> stage 2 -> stage 3",
+      "width": 1200,
+      "height": 800
+    }
+  ],
+  "full_text": "build-server-04 ~ % deploy status\nservice: ingestion-api      state: RUNNING   uptime: 14d 02h\nservice: embedding-worker   state: RUNNING   uptime: 14d 02h\nservice: report-generator   state: DEGRADED  uptime: 00d 03h\n\nWARN report-generator: queue depth above threshold (412 > 250)\nINFO autoscaler: spinning up 1 additional worker\ningestion -> queue -> worker\n\nPipeline Diagram (manual export)\n\nDocuments -> Extraction -> Chunking -> Embedding -> Vector DB\n\nEach stage logs duration_s and status to runs/<run_id>/run.log\nstage 1 -> stage 2 -> stage 3",
+  "ocr_required": true,
+  "notes": "Standalone images with dense text and a simple flow diagram. Native/Docling text extraction is expected to recover ~0 characters here -- this category specifically exercises the GPT-4o VLM extractor."
+}

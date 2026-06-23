@@ -1,0 +1,37 @@
+run_name: "synthetic-corpus-baseline"
+mode: ablation   # ablation | full_factorial -- see ARCHITECTURE.md section 5
+
+documents:
+  source_dir: "sample_docs"
+  categories: [structured, scanned, powerpoint, image_heavy]
+
+# Ablation mode: hold every stage at its default, sweep one stage at a time
+# against the `sweep` lists below. Full-factorial mode (opt-in) runs the
+# full cartesian product instead -- only recommended on a small corpus.
+defaults:
+  extractor: docling
+  chunker: heading_based
+  metadata_generator: rule_based
+  embedder: text-embedding-3-small
+  vector_store: qdrant
+
+sweep:
+  extractor: [native, docling, tesseract, azure_di, gpt4o_vlm]
+  chunker: [fixed_size, heading_based, recursive]
+  metadata_generator: [rule_based, llm_metadata]
+  embedder: [text-embedding-3-small, text-embedding-3-large]
+  vector_store: [qdrant, pgvector]
+
+chunking_params:
+  fixed_size: { chunk_size: 500, overlap: 50 }
+  heading_based: { max_chunk_size: 600 }
+  recursive: { chunk_size: 500, overlap: 75 }
+
+# Components keyed here are skipped (not failed) if the named environment
+# variable isn't set -- see Extractor.requires_credentials in core/interfaces.py.
+credentials_required:
+  azure_di: AZURE_DOCUMENT_INTELLIGENCE_KEY
+  gpt4o_vlm: OPENAI_API_KEY
+  llm_metadata: OPENAI_API_KEY
+  text-embedding-3-small: OPENAI_API_KEY
+  text-embedding-3-large: OPENAI_API_KEY

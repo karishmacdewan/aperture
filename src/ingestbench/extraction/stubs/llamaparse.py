@@ -1,0 +1,23 @@
+"""Deferred extractor: LlamaParse. See ARCHITECTURE.md section 8."""
+
+from __future__ import annotations
+
+from pathlib import Path
+
+from ingestbench.core.interfaces import Extractor
+from ingestbench.core.models import ExtractionResult, FileType
+from ingestbench.core.registry import registry
+
+
+@registry.register("extractor", "llamaparse")
+class LlamaParseExtractor(Extractor):
+    name = "llamaparse"
+    supported_types = [FileType.PDF_NATIVE, FileType.PDF_SCANNED]
+    requires_credentials = True
+
+    def extract(self, file_path: Path) -> ExtractionResult:
+        raise NotImplementedError(
+            "LlamaParse extractor is a registered stub (deferred past V1). "
+            "Implement extract() in this file to enable it -- no other code "
+            "needs to change."
+        )

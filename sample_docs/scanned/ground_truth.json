@@ -1,0 +1,37 @@
+{
+  "category": "scanned",
+  "files": [
+    "sample_scanned.pdf"
+  ],
+  "num_pages": 2,
+  "ocr_required": true,
+  "has_text_layer": false,
+  "pages": [
+    {
+      "page_number": 1,
+      "heading": "MEMORANDUM",
+      "lines": [
+        "To: All Regional Managers",
+        "From: Operations Planning",
+        "Re: Warehouse Inventory Audit Schedule",
+        "",
+        "All regional warehouses must complete a full inventory audit",
+        "before the end of the current quarter. Audit teams should",
+        "coordinate with the regional manager to schedule downtime."
+      ]
+    },
+    {
+      "page_number": 2,
+      "heading": "Page 2 - Continued",
+      "lines": [
+        "Audit reports are due five business days after the audit",
+        "is completed. Late submissions require a written explanation",
+        "and a copy to the regional director.",
+        "",
+        "Questions should be directed to Operations Planning."
+      ]
+    }
+  ],
+  "full_text": "MEMORANDUM\nTo: All Regional Managers\nFrom: Operations Planning\nRe: Warehouse Inventory Audit Schedule\n\nAll regional warehouses must complete a full inventory audit\nbefore the end of the current quarter. Audit teams should\ncoordinate with the regional manager to schedule downtime.\nPage 2 - Continued\nAudit reports are due five business days after the audit\nis completed. Late submissions require a written explanation\nand a copy to the regional director.\n\nQuestions should be directed to Operations Planning.",
+  "notes": "Page content is rasterized text with no underlying text layer -- a true scan. Extraction should route to OCR (Tesseract default, Azure DI if configured)."
+}

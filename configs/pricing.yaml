@@ -1,0 +1,21 @@
+# $/1M-token rates for every paid model used anywhere in the ingestion
+# pipeline -- embeddings, GPT-4o vision extraction, and GPT-4o-mini metadata
+# enrichment all read from this one file. Update this file when OpenAI
+# changes pricing; nothing else in the codebase needs to change.
+#
+# Rates current as of mid-2026 -- see ARCHITECTURE.md "Sources" section
+# for the pages these were read from.
+
+embedding_models:
+  text-embedding-3-small:
+    input_per_1m_usd: 0.02
+  text-embedding-3-large:
+    input_per_1m_usd: 0.13
+
+chat_vision_models:
+  gpt-4o:
+    input_per_1m_usd: 2.50
+    output_per_1m_usd: 10.00
+  gpt-4o-mini:
+    input_per_1m_usd: 0.15
+    output_per_1m_usd: 0.60
