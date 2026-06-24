@@ -9,7 +9,7 @@ export default function Home() {
 
       {/* Hero */}
       <div className="mt-8">
-        <h1 className="font-heading max-w-3xl text-5xl leading-[1.12] tracking-tight text-foreground md:text-6xl">
+        <h1 className="font-heading font-semibold max-w-3xl text-5xl leading-[1.1] tracking-tight text-foreground md:text-6xl">
           Your AI stack&rsquo;s performance starts at ingestion.
         </h1>
         <p className="mt-7 max-w-xl text-[16px] leading-8 text-muted-foreground">

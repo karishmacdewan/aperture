@@ -43,7 +43,7 @@ function ScoreArc({ score, size = 120 }: { score: number; size?: number }) {
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-heading text-4xl font-normal leading-none tabular-nums text-foreground">
+        <span className="font-mono text-4xl font-medium leading-none tabular-nums text-foreground">
           {Math.round(score)}
         </span>
         <span className="mt-1 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
