@@ -23,7 +23,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-background">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <TooltipProvider>
             <NavBar />
             <main className="mx-auto w-full max-w-6xl flex-1 px-6 pb-16">{children}</main>
